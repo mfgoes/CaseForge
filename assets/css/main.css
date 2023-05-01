@@ -83,12 +83,17 @@ body, input, select, textarea, a {
 
 .lead {
 	font-size: 1.2em;
+	line-height: 2em;
 }
 .nav-item a {
 	color:#000000;
 }
 .nav-item a:hover {
 	color:#0000006c;
+}
+
+.title-spaced {
+	letter-spacing: 3vw;
 }
 
 .title-scaled {
