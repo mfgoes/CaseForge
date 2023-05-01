@@ -92,18 +92,20 @@ body, input, select, textarea, a {
 }
 
 .title-scaled {
-	font-size: 10vw;
+	font-size: 14vw;
 }
 @media (max-width: 768px) {
 	.title-scaled {
 		font-size: 5em;
 	}
   }
-  @media (min-width: 1200px) {
-	.title-scaled {
-		font-size: 8vw;
-	}
+
+  strong {
+	font-weight: bold;
+	text-decoration: underline;
+
   }
+
 
 /*bootstrap placeholders*/
 .bd-placeholder-img {
