@@ -4,15 +4,15 @@
 	To do: integrate SCSS better later
 */
 
-
 @font-face {
-    font-family: 'CircularStd';
-    src: url('/assets/fonts/circularstd-medium.woff2') format('woff2'),
-         url('/assets/fonts/circularstd-medium.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
+	font-family: 'CircularStd-Medium';
+	src: url('../fonts/circularstd-medium.woff2') format('woff2'),
+		 url('../fonts/circularstd-medium.woff') format('woff'),
+		 url('../fonts/CircularStd-Medium.otf') format('opentype');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+  }
 
 /*Backgrounds and color replacements*/
 :root {
@@ -67,10 +67,10 @@ body {
 	height: 99vh;
 }
 
-h1,h2,h3, h4 {
-	font-weight: 600;
-	font-family: 'CircularStd', 'Open Sans', sans-serif;
-}
+h1, h2, h3, h4 {
+	font-weight: 500; /* Use the font-weight defined for CircularStd-Medium */
+	font-family: 'CircularStd-Medium', 'Open Sans', sans-serif;
+  }  
 
 body, input, select, textarea, a {
 	font-family: 'Inter', Helvetica, 'Open Sans', sans-serif;
