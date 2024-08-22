@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+ <!DOCTYPE HTML>
 <!--
 Document info here
 Started November 2021
@@ -7,7 +7,7 @@ https://www.notion.so/Web-Dev-Portfolio-template-27b8bac6746b4235a4ac58a1a1399f7
 <html>
 
 <head>
-	<title>Glyphic | Game Studio</title>
+	<title>HH</title>
 
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 	<link rel="stylesheet" href="assets/css/fontawesome.css"> <!--for icon shit-->
@@ -25,7 +25,7 @@ https://www.notion.so/Web-Dev-Portfolio-template-27b8bac6746b4235a4ac58a1a1399f7
 	<meta name="author" content="Mischa vd Goes">
 
 	<!-- Description -->
-	<meta name="description" content="A Dutch-based game studio consisting of Cas, Mischa, Zenna, and Chunwai, engraving epic experiences in the gaming world.">
+	<meta name="description" content="">
 
 	<!-- Open Graph -->
 	<meta property="og:type" content="website">
@@ -70,19 +70,62 @@ https://www.notion.so/Web-Dev-Portfolio-template-27b8bac6746b4235a4ac58a1a1399f7
 
 	<!-- Jumbatron -->
 	<div class="container col-xxl-8">
-		<div class="row flex-lg-row-reverse align-items-center center-page g-5 pb-5">
+		<div class="row flex-lg-row-reverse center-page g-5 pb-5">
 			
 			<div class="col-lg-12 text-left">
-				<h4 class="display-1 text-mint title-spaced">We are</h4>
-				<div class="">
-					<h1 class="fw-bold title-scaled title-spaced pb-2">
-						Glyphic
-					</h1>
-				</div>
-				<p class="lead text-mint">A Netherlands based game studio consisting of Cas, Mischa, Zenna and Chunwai.<br>
-                    Website coming <strong>Summer 2023</strong></p>
+				<h1 class="display-1">HH</h1>
+				<p class="lead text-center">Databse of entry level mechanical watches and where to buy them.
+                  </p>
 			</div>
 		</div>
+
+		
+		<div class="container my-4">
+			<h1 class="mb-4">Watch Collection</h1>
+			<table id="watches-table" class="table table-striped table-bordered table-hover">
+				<thead class="thead-dark">
+					<tr>
+						<th>Name</th>
+						<th>Description</th>
+						<th>Category</th>
+						<th>Price</th>
+						<th>Image</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- Data will be populated here -->
+				</tbody>
+			</table>
+		</div>
+
+		<!-- Modal Structure -->
+		<div class="modal fade" id="watchModal" tabindex="-1" role="dialog" aria-labelledby="watchModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+				<h5 class="modal-title" id="watchModalLabel">Watch Details</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				</div>
+				<div class="modal-body">
+				<h5 id="modalWatchName"></h5>
+				<p id="modalWatchDescription"></p>
+				<p><strong>Category:</strong> <span id="modalWatchCategory"></span></p>
+				<p><strong>Price:</strong> €<span id="modalWatchPrice"></span></p>
+				<img id="modalWatchImage" src="" alt="Watch Image" style="max-width: 100%; height: auto;">
+				</div>
+				<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+			</div>
+		</div>
+  
+    
+    <!-- Include JavaScript -->
+    <script src="assets/js/script.js"></script>
+
 	</div>
 	
 
@@ -93,6 +136,11 @@ https://www.notion.so/Web-Dev-Portfolio-template-27b8bac6746b4235a4ac58a1a1399f7
 	<!-- Scripts -->
 	<script src="assets/js/bootstrap.bundle.min.js"></script>
 	<!-- Optional JavaScript -->
+	 <!-- Include Bootstrap JS for the modal functionality -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 
 </body>
 
