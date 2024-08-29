@@ -53,3 +53,12 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+
+//Table style
+#watches-table img {
+    width: 100px; // Set the width of the image
+    height: 100px; // Force height to be the same as the width (making it square)
+    object-fit: cover; // Ensures the image maintains its aspect ratio and is cropped if necessary
+    border-radius: 4px; // Apply a 4px border radius
+  }
+  

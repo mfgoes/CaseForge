@@ -57,6 +57,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         document.getElementById('modalWatchPrice').textContent = this.dataset.price;
                         document.getElementById('modalWatchImage').src = this.dataset.image;
                         document.getElementById('modalWatchImage').alt = this.dataset.name;
+                    
+                        // Update specifications title to include the name + "Specifications"
+                        document.getElementById('modalWatchSpecsTitle').textContent = `${this.dataset.name} Specifications`;
+                        
+
 
                         // Show the modal
                         $('#watchModal').modal('show');

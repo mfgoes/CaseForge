@@ -49,3 +49,11 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+
+#watches-table img {
+  width: 100px;
+  height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 4px;
+}
