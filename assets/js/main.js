@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     const csvFilePath = 'assets/database.csv'; // Path to your CSV file
+    const tableBody = document.querySelector('#watches-table tbody');
+    const errorMessage = document.createElement('tr'); // Create a new row for the error message
 
-    // Initialize the table and modal handling
+    // Fetch the CSV file
     fetch(csvFilePath)
         .then(response => {
             if (!response.ok) {
@@ -12,11 +14,26 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             const rows = data.trim().split('\n').slice(1); // Split CSV data and skip the header
 
-            // Initialize table with data
-            populateTable(rows);
+            // Check if there are rows to populate
+            if (rows.length === 0) {
+                throw new Error('CSV file is empty or no data found');
+            }
+
+            // Pass the rows to table.js for populating the table
+            populateTable(rows); // populateTable is in table.js
 
             // Initialize modal handling
-            handleRowClick();
+            handleRowClick(); // handleRowClick is in modal.js
         })
-        .catch(error => console.error('Error loading CSV file:', error));
+        .catch(error => {
+            // Handle errors and display an error message inside the table
+            console.error('Error loading CSV file:', error);
+
+            // Display the error message in the table
+            errorMessage.innerHTML = `
+                <td colspan="5" style="color: red; text-align: center;">
+                    Error: ${error.message}. Please ensure the CSV file is available and try again.
+                </td>`;
+            tableBody.appendChild(errorMessage); // Append the error message as a table row
+        });
 });
