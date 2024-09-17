@@ -1,3 +1,4 @@
+//click logic
 function handleRowClick() {
     const tableRows = document.querySelectorAll('#watches-table tbody tr');
     
