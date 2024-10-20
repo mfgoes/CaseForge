@@ -7,10 +7,6 @@ body, p, table, th {
   font-family: "Archivo", sans-serif;
 }
 
-body {
-  background-color: #D6DBDF;
-}
-
 .thead-dark {
   background-color: #212F3C;
   color: #EBEDEF;
@@ -56,39 +52,4 @@ button:hover {
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 4px;
-}
-
-/* Side Panel Styles */
-.side-panel {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 300px; /* Adjust width as needed */
-  height: 100%;
-  background-color: white;
-  box-shadow: -2px 0 5px rgba(0,0,0,0.5);
-  transform: translateX(100%);
-  transition: transform 0.3s ease;
-  z-index: 1050; /* Higher than Bootstrap's modal */
-}
-
-.side-panel.open {
-  transform: translateX(0);
-}
-
-.side-panel-content {
-  padding: 20px;
-  overflow-y: auto;
-  height: 100%;
-}
-
-.close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #333;
 }

@@ -22,19 +22,23 @@ function openSidePanel(data) {
     });
 
     // Open side panel
-    sidePanel.classList.add('open');
+    sidePanel.classList.add('show'); // Use the 'show' class to open the panel
 }
 
 function closeSidePanel() {
-    sidePanel.classList.remove('open');
+    // Hide the side panel by removing the 'show' class
+    sidePanel.classList.remove('show');
 }
 
 function initializeSidePanel() {
+    // Ensure the close button works
     closeBtn.addEventListener('click', closeSidePanel);
 
     // Ensure rows have the necessary data attributes for the side panel
     document.querySelectorAll('#watches-table tbody tr').forEach(row => {
         row.addEventListener('click', () => {
+            console.log("Row clicked:", row); // Debug: Check if the row is being clicked
+
             const data = {
                 name: row.dataset.name,
                 description: row.dataset.description,
@@ -43,10 +47,12 @@ function initializeSidePanel() {
                 image: row.dataset.image,
                 specs: row.dataset.specs.split(';')
             };
-            openSidePanel(data);
+
+            console.log("Data to be passed to side panel:", data); // Debug: Check the data being passed
+            openSidePanel(data); // Open side panel with row data
         });
     });
 }
 
-// Export the function if needed for modularization
-// export { initializeSidePanel };
+// Initialize the side panel
+initializeSidePanel();

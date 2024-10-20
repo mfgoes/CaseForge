@@ -1,0 +1,32 @@
+/* Custom code for home page cards */
+#cards-view {
+    .card {
+        width: 100%;
+        margin-bottom: 20px;
+
+        .card-img-top {
+            width: 100%;
+            height: auto; // Allow height to adjust automatically
+            position: relative; // Position relative for the parent
+
+            // Create an aspect ratio box
+            &::before {
+                content: "";
+                display: block;
+                padding-top: 75%; // 4:3 aspect ratio (3/4 = 75%)
+            }
+
+            // Ensure the image fills the aspect ratio box
+            img {
+                position: absolute; // Position absolute to cover the parent
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover; // Ensures the image covers the area
+                object-position: center; // Center the image if it's cropped
+                border-radius: 20px 20px 0 0;
+            }
+        }
+    }
+}
