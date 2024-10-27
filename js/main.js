@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // Pass the rows to table.js for populating the table
             populateTable(rows); // populateTable is in table.js
 
-            // Initialize side panel handling
-            initializeSidePanel(); // Define this function to set up side panel interactions
+            // Initialize side panel only after rows are populated
+            setTimeout(() => initializeSidePanel(), 0);
         })
         .catch(error => {
             // Handle errors and display an error message inside the table
