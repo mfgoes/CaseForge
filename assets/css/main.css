@@ -1,6 +1,40 @@
-@import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+.bg-brand {
+  background-color: #5856D6;
+}
+
+.dark-section {
+  background-color: #131417;
+}
+
+.btn-primary {
+  background-color: #5856D6;
+  border-color: #5856D6;
+}
+.btn-primary:hover, .btn-primary:focus {
+  background-color: #4c4ac3;
+}
+
+.border-16 {
+  border-radius: 16px;
+}
+
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Staatliches", sans-serif;
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 25px;
+  line-height: 110%;
+}
+
+.subtitle {
+  font-weight: 300;
+  color: whitesmoke;
+  line-height: 140%;
+  letter-spacing: 0.5 px;
 }
 
 body, p, table, th {
@@ -21,9 +55,19 @@ form {
   margin: 0 auto;
 }
 
+.nav-item {
+  font-family: "Manrope", sans-serif;
+  font-weight: 300;
+}
+
+.navbar-dark {
+  background-color: #131417;
+}
+
 label {
   display: block;
   margin-top: 10px;
+  font-family: "Manrope", sans-serif;
 }
 
 input[type=text], textarea {

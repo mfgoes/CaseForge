@@ -1,0 +1,171 @@
+
+// Define border radius variables
+$border-radius-large: 16px;
+$underline-width: 3px;
+$brand-color: #5856D6;
+$gray-20: #838383;
+
+
+//Thumbnail on project page (move to project SCSS file later
+/* Ensure that all thumbnails are square */
+.carousel-thumbnails .carousel-thumbnail {
+    width: 80px; /* Set a fixed width */
+    height: 80px; /* Set a fixed height to make it square */
+    padding: 0; /* Remove padding to keep it perfectly square */
+}
+
+.carousel-thumbnails .carousel-thumbnail img {
+    width: 100%; /* Ensure image fills the button */
+    height: 100%; /* Ensure image fills the button */
+    object-fit: cover; /* Keep the image proportions and crop it to fill */
+}
+
+/* Additional styling to align the thumbnails in a row */
+.carousel-thumbnails {
+    gap: 10px; /* Space between thumbnails */
+}
+
+/* Active thumbnail style */
+.carousel-thumbnails .carousel-thumbnail.active img {
+    border: 1px solid $brand-color; /* Add a border to the active thumbnail */
+    //box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Highlight active thumbnail */
+}
+
+/* Ensure that carousel images are square */
+.square-carousel-img {
+    width: 100%; /* Make image fill the width of the container */
+    max-width: 1200px;
+    height: auto; /* Adjust height based on width while keeping the aspect ratio */
+    aspect-ratio: 3 / 2; /* Ensure 1:1 aspect ratio for square images */
+    object-fit: cover; /* Ensure image covers the area without distortion */
+    display: block; /* Ensure the image behaves like a block element */
+    border-radius: $border-radius-large;
+}
+@media (max-width: 767px) {
+    .square-carousel-img {
+        width: 90%; /* Card will take 90% width on mobile */
+    }
+}
+
+//Basic styling
+.specs-subheader {
+    font-weight: 300;
+    font-size: 1em;
+    letter-spacing: 1px;
+    color: $gray-20;
+    border-bottom: 1px solid #c0c0c0;
+    padding-bottom: 8px;
+    margin-right: 100px;
+}
+
+.text-gray-brand {
+    color: $gray-20;
+}
+
+.label {
+    font-family: "Manrope", sans-serif;
+    font-size: 0.8em;
+}
+
+// UP NEXT CARD STYLING
+.up-next-card {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: inherit;
+    margin-bottom: 80px;
+    margin-top: 80px;
+ 
+    
+    .card {
+        max-width: 70%; /* Limits card width to half on desktop */
+        margin: 0 auto; /* Centers the card */
+        overflow: hidden;
+        transition: opacity 0.3s ease;
+        border-radius: $border-radius-large;
+        position: relative;
+
+        &:hover {
+            opacity: 0.85;
+        }
+
+        .card-img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+            border-radius: inherit;
+        }
+
+        .card-img-overlay {
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: inherit;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .card {
+            max-width: 90%; /* Card will take 90% width on mobile */
+        }
+    }
+
+    // Hover effect for h2 with underline animation
+    h2.text-next-project {
+        position: relative;
+        display: inline-block;
+        transition: transform 0.3s ease;
+
+        &.underline-effect {
+            // Underline animation setup
+            &::before, &::after {
+                content: "";
+                position: absolute;
+                bottom: -10px;
+                width: 0;
+                height: $underline-width;
+                background-color: white; // underline color
+                transition: width 0.6s ease 0.1s;
+            }
+
+            // Left part of the underline
+            &::before {
+                left: 50%;
+                transform-origin: right;
+            }
+
+            // Right part of the underline
+            &::after {
+                right: 50%;
+                transform-origin: left;
+            }
+        }
+    }
+
+    // Hover effect for the entire .up-next-card
+    &:hover h2.text-next-project {
+        transform: translateY(-3px); // Move text upwards on hover
+    }
+
+    &:hover h2.text-next-project.underline-effect::before {
+        width: 50%; // Expand from center to the left
+        transform: scaleX(1); // Expand left part
+    }
+
+    &:hover h2.text-next-project.underline-effect::after {
+        width: 50%; // Expand from center to the right
+        transform: scaleX(1); // Expand right part
+    }
+}
+
+
+// Styling for the horizontal line
+.section-line {
+    border: none;
+    height: 1px;
+    background-color: #7d7d7d;  // Light gray color for the line
+    margin-bottom: 30px;  // Adjust this value to create enough spacing
+    width: 100%;  // Ensures the line takes up the full width of the container
+}

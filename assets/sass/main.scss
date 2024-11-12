@@ -1,9 +1,57 @@
 // Import the Staatliches font from Google Fonts
-@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+// Define border radius variables
+$border-radius-large: 16px;
+$underline-width: 3px;
+$brand-color: #5856D6;
+$brand-black: #131417;
+$gray-20: #666666;
+
+.bg-brand {
+    background-color: $brand-color;
+}
+
+.dark-section {
+    background-color: $brand-black;
+}
+
+.btn-primary {
+    background-color: $brand-color;
+    border-color: $brand-color;
+
+    &:hover, &:focus {
+        background-color: #4c4ac3;
+    }
+}
+
+
+//HELPER CLASSES (MOVE LATER)
+.border-16 {
+    border-radius: $border-radius-large;
+}
+.glow-lg {
+    //add effect here later
+}
+
 
 // Apply the Staatliches font to all headers
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Staatliches', sans-serif;
+    font-family: "Manrope", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 25px;
+    line-height: 110%;
+}
+
+.subtitle {
+    font-weight: 300;
+    color: whitesmoke;
+    line-height: 140%;
+    letter-spacing: 0.5 px;
 }
 
 // Apply the Archivo font to body and paragraphs
@@ -25,9 +73,19 @@ form {
     margin: 0 auto;
 }
 
+.nav-item {
+    font-family: "Manrope", sans-serif;
+    font-weight: 300;
+}
+
+.navbar-dark {
+    background-color: $brand-black;
+}
+
 label {
     display: block;
     margin-top: 10px;
+    font-family: "Manrope", sans-serif;
 }
 
 input[type="text"], textarea {
@@ -58,3 +116,5 @@ button:hover {
     border-radius: 4px; // Apply a 4px border radius
   }
   
+
+

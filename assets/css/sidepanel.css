@@ -1,4 +1,4 @@
-/*custom code for sidepanel*/
+/* Custom code for sidepanel */
 .side-panel {
   position: fixed;
   right: -400px; /* Initially off-screen */
@@ -10,6 +10,22 @@
   padding: 20px;
   z-index: 1000;
   transition: right 0.3s ease; /* Smooth sliding effect */
+}
+
+.side-panel-content {
+  display: flex; /* Use flexbox layout */
+  flex-direction: column; /* Stack child elements vertically */
+  height: calc(100% - 60px); /* Adjust height to leave space for the footer */
+  overflow-y: auto; /* Enable vertical scrolling for long content */
+}
+
+.side-panel-footer {
+  margin-top: auto; /* Push footer to the bottom */
+  display: flex; /* Flexbox for footer buttons */
+  justify-content: space-between; /* Space between buttons */
+  padding: 10px 0; /* Padding for spacing */
+  border-top: 1px solid #ccc; /* Optional: Add a top border for separation */
+  background-color: red;
 }
 
 .side-panel.show {
