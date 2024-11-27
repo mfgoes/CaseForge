@@ -1,3 +1,7 @@
+h2, h3 {
+  color: #131417;
+}
+
 /* Ensure that all thumbnails are square */
 .carousel-thumbnails .carousel-thumbnail {
   width: 80px; /* Set a fixed width */
@@ -53,6 +57,14 @@
   color: #838383;
 }
 
+.bg-paper {
+  background-color: #F3F3EF;
+  color: #131417;
+}
+.bg-paper h2, .bg-paper h3 {
+  color: #131417;
+}
+
 .label {
   font-family: "Manrope", sans-serif;
   font-size: 0.8em;
@@ -100,6 +112,7 @@
 .up-next-card h2.text-next-project {
   position: relative;
   display: inline-block;
+  color: white;
   transition: transform 0.3s ease;
 }
 .up-next-card h2.text-next-project.underline-effect::before, .up-next-card h2.text-next-project.underline-effect::after {

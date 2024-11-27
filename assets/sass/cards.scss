@@ -1,6 +1,7 @@
 // Define border radius variables
 $border-radius-large: 16px;
 $underline-width: 3px;
+$gray-10: #F3F3EF;
 
 
 /* Custom code for home page cards */
@@ -35,3 +36,15 @@ $underline-width: 3px;
         }
     }
 }
+
+
+
+/*for the homepage*/
+.card-body {
+    h1, h2, h4, h5 {
+    color: white;
+    }
+    p {
+        color: $gray-10;
+    }
+  }

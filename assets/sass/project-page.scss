@@ -4,6 +4,13 @@ $border-radius-large: 16px;
 $underline-width: 3px;
 $brand-color: #5856D6;
 $gray-20: #838383;
+$brand-black: #131417;
+
+//reset defaults 
+h2, h3 {
+    color: $brand-black;
+}
+
 
 
 //Thumbnail on project page (move to project SCSS file later
@@ -62,6 +69,15 @@ $gray-20: #838383;
     color: $gray-20;
 }
 
+.bg-paper {
+    background-color: #F3F3EF;
+    color: $brand-black;
+
+    h2, h3 {
+        color: $brand-black;
+    }
+}
+
 .label {
     font-family: "Manrope", sans-serif;
     font-size: 0.8em;
@@ -116,6 +132,7 @@ $gray-20: #838383;
     h2.text-next-project {
         position: relative;
         display: inline-block;
+        color: white;
         transition: transform 0.3s ease;
 
         &.underline-effect {

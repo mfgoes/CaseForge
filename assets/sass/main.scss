@@ -7,6 +7,7 @@ $underline-width: 3px;
 $brand-color: #5856D6;
 $brand-black: #131417;
 $gray-20: #666666;
+$gray-40: #424242;
 
 .bg-brand {
     background-color: $brand-color;
@@ -43,9 +44,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h3 {
-    font-size: 25px;
     line-height: 110%;
+    font-size: 24px;
 }
+
+@media (max-width: 492px) {
+    h3 {
+        font-size: 20px;
+    }
+}
+
 
 .subtitle {
     font-weight: 300;
@@ -67,6 +75,12 @@ body, p, table, th {
 h1 {
     text-align: center;
 }
+
+body {
+    color: $gray-40;
+    font-weight: 300;
+}
+
 
 form {
     max-width: 600px;

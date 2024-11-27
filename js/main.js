@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const csvFilePath = 'assets/database.csv'; // Path to your CSV file
     const tableBody = document.querySelector('#watches-table tbody');
     const errorMessage = document.createElement('tr'); // Create a new row for the error message
@@ -22,6 +22,9 @@ document.addEventListener('DOMContentLoaded', function() {
             // Pass the rows to table.js for populating the table
             populateTable(rows); // populateTable is in table.js
 
+            // Populate the default card view
+            populateCardView(rows);
+
             // Initialize side panel only after rows are populated
             setTimeout(() => initializeSidePanel(), 0);
         })
@@ -37,3 +40,39 @@ document.addEventListener('DOMContentLoaded', function() {
             tableBody.appendChild(errorMessage); // Append the error message as a table row
         });
 });
+
+// Function to populate the card view on page load
+function populateCardView(rows) {
+    const table = document.getElementById('watches-table');
+    const cardsView = document.getElementById('cards-view');
+    const toggleViewBtn = document.getElementById('toggle-view-btn');
+
+    // Clear the card view first
+    cardsView.innerHTML = '';
+
+    // Populate cards from CSV data
+    const cardPromises = rows.map(row => {
+        const cols = row.split(',');
+
+        const data = {
+            name: cols[0].trim(),
+            description: cols[1].trim(),
+            category: cols[2].trim(),
+            price: cols[3].trim(),
+            image: cols[4].trim(),
+            Project_link: cols[6] ? cols[6].trim() : ''
+        };
+
+        return createCard(data); // createCard is in ViewManager.js
+    });
+
+    // Append the cards to the card view
+    Promise.all(cardPromises).then(cards => {
+        cards.forEach(card => cardsView.appendChild(card));
+
+        // Update visibility for default card view
+        table.classList.add('d-none'); // Hide table
+        cardsView.classList.remove('d-none'); // Show card view
+        toggleViewBtn.textContent = "Toggle Table View"; // Update button text
+    });
+}

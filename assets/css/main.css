@@ -26,10 +26,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h3 {
-  font-size: 25px;
   line-height: 110%;
+  font-size: 24px;
 }
 
+@media (max-width: 492px) {
+  h3 {
+    font-size: 20px;
+  }
+}
 .subtitle {
   font-weight: 300;
   color: whitesmoke;
@@ -48,6 +53,11 @@ body, p, table, th {
 
 h1 {
   text-align: center;
+}
+
+body {
+  color: #424242;
+  font-weight: 300;
 }
 
 form {

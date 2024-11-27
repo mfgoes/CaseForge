@@ -25,3 +25,11 @@
      object-position: center;
   border-radius: 20px 20px 0 0;
 }
+
+/*for the homepage*/
+.card-body h1, .card-body h2, .card-body h4, .card-body h5 {
+  color: white;
+}
+.card-body p {
+  color: #F3F3EF;
+}
