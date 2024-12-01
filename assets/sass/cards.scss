@@ -9,6 +9,9 @@ $gray-10: #F3F3EF;
     .card {
         width: 100%;
         margin-bottom: 20px;
+        background-color: #1A1B1F;
+        border-style: none;
+        border-radius: 20px;
 
         .card-img-top {
             width: 100%;
@@ -41,6 +44,12 @@ $gray-10: #F3F3EF;
 
 /*for the homepage*/
 .card-body {
+    display: flex;              // Enable flexbox
+    flex-direction: row;        // Arrange elements in a row
+    align-items: center;        // Align items vertically in the center
+    justify-content: space-between; // Distribute space between the text and the button
+
+
     h1, h2, h4, h5 {
     color: white;
     }
@@ -48,3 +57,37 @@ $gray-10: #F3F3EF;
         color: $gray-10;
     }
   }
+
+  /* Remove underline from the link */
+.card-link {
+    text-decoration: none; /* Removes the underline */
+    color: inherit; /* Inherits text color */
+}
+
+/* Style for the arrow button */
+.card-arrow {
+    display: inline-block;
+    background-color: #e9e9e92e;
+    margin-top: 10px; /* Add some spacing if needed */
+    transition: 0.3s;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.card-arrow svg {
+    fill: #fff; /* Set the color of the arrow */
+    transition: transform 0.5s ease; /* Smooth transition for hover effect */
+}
+
+/* Optional hover effect for the arrow */
+.card-link:hover .card-arrow svg {
+    transform: translateX(4px); /* Moves the arrow to the right when hovering */
+    fill: #1A1B1F;
+}
+
+.card-link:hover .card-arrow {
+    background-color: #F3F3EF;
+    transition: 0.3s;
+    margin-right: 0px;
+    padding-left: 4px;
+}

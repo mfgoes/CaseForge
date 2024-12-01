@@ -2,6 +2,9 @@
 #cards-view .card {
   width: 100%;
   margin-bottom: 20px;
+  background-color: #1A1B1F;
+  border-style: none;
+  border-radius: 20px;
 }
 #cards-view .card .card-img-top {
   width: 100%;
@@ -27,9 +30,49 @@
 }
 
 /*for the homepage*/
+.card-body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
 .card-body h1, .card-body h2, .card-body h4, .card-body h5 {
   color: white;
 }
 .card-body p {
   color: #F3F3EF;
+}
+
+/* Remove underline from the link */
+.card-link {
+  text-decoration: none; /* Removes the underline */
+  color: inherit; /* Inherits text color */
+}
+
+/* Style for the arrow button */
+.card-arrow {
+  display: inline-block;
+  background-color: rgba(233, 233, 233, 0.1803921569);
+  margin-top: 10px; /* Add some spacing if needed */
+  transition: 0.3s;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.card-arrow svg {
+  fill: #fff; /* Set the color of the arrow */
+  transition: transform 0.5s ease; /* Smooth transition for hover effect */
+}
+
+/* Optional hover effect for the arrow */
+.card-link:hover .card-arrow svg {
+  transform: translateX(4px); /* Moves the arrow to the right when hovering */
+  fill: #1A1B1F;
+}
+
+.card-link:hover .card-arrow {
+  background-color: #F3F3EF;
+  transition: 0.3s;
+  margin-right: 0px;
+  padding-left: 4px;
 }

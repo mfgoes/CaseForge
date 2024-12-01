@@ -76,3 +76,21 @@ function populateCardView(rows) {
         toggleViewBtn.textContent = "Toggle Table View"; // Update button text
     });
 }
+
+// Select all cards
+const cards = document.querySelectorAll('.card');
+
+// Iterate over each card
+cards.forEach(card => {
+    const button = card.querySelector('.btn-home-arrow'); // The button inside each card
+    
+    // On mouse enter, trigger the hover state
+    card.addEventListener('mouseenter', () => {
+        button.classList.add('hover');
+    });
+
+    // On mouse leave, remove the hover state
+    card.addEventListener('mouseleave', () => {
+        button.classList.remove('hover');
+    });
+});
