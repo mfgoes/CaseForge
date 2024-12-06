@@ -8,6 +8,7 @@ $brand-color: #5856D6;
 $brand-black: #131417;
 $gray-20: #666666;
 $gray-40: #424242;
+$text-muted: #DADADA;
 
 .bg-brand {
     background-color: $brand-color;
@@ -76,9 +77,46 @@ h1 {
     text-align: center;
 }
 
-body {
-    color: $gray-40;
+
+html, body {
+    height: 100%;
     font-weight: 300;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.container, #footer-container {
+    flex: 1;
+}
+
+footer {
+    background-color: #171613;
+    font-family: "Manrope", sans-serif;
+    color: $text-muted;
+
+    h5 {
+        font-weight: 600;
+        font-size: 1em;
+        color: white;
+    }
+    p, a {
+        text-decoration: none;
+        font-size: 0.9em;
+        color: $text-muted;
+        line-height: 2.3em;
+        transition: 0.3s;
+
+        &:hover {
+            color: white;
+            text-decoration: underline;
+            transition: 0.3s;
+        }
+    }
+
+    p {
+        line-height: 1.2em;
+    }
 }
 
 

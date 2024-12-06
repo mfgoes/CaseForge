@@ -55,9 +55,42 @@ h1 {
   text-align: center;
 }
 
-body {
-  color: #424242;
+html, body {
+  height: 100%;
   font-weight: 300;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.container, #footer-container {
+  flex: 1;
+}
+
+footer {
+  background-color: #171613;
+  font-family: "Manrope", sans-serif;
+  color: #DADADA;
+}
+footer h5 {
+  font-weight: 600;
+  font-size: 1em;
+  color: white;
+}
+footer p, footer a {
+  text-decoration: none;
+  font-size: 0.9em;
+  color: #DADADA;
+  line-height: 2.3em;
+  transition: 0.3s;
+}
+footer p:hover, footer a:hover {
+  color: white;
+  text-decoration: underline;
+  transition: 0.3s;
+}
+footer p {
+  line-height: 1.2em;
 }
 
 form {
