@@ -186,3 +186,11 @@ h2, h3 {
     margin-bottom: 30px;  // Adjust this value to create enough spacing
     width: 100%;  // Ensures the line takes up the full width of the container
 }
+
+.img-rounded {
+    border-radius: $border-radius-large;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: rgb(245, 245, 245)
+}
