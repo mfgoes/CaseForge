@@ -125,6 +125,10 @@ form {
     margin: 0 auto;
 }
 
+.navbar-container {
+    z-index: 10; /* Ensures the content stays above the overlay */
+}
+
 .nav-item {
     font-family: "Manrope", sans-serif;
     font-weight: 300;
@@ -132,6 +136,11 @@ form {
 
 .navbar-dark {
     background-color: $brand-black;
+}
+.navbar-brand {
+    font-size: 1em;
+    font-family: "Manrope", sans-serif;
+    font-weight: 600;
 }
 
 label {

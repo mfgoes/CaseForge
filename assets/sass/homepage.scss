@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #22252b, #020202 200px, rgb(2, 2, 2) 100px);
+    background-attachment: fixed;
+    color: white;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0f0f0f;
+    z-index: 1;
+    animation: fadeOut 3s ease-in-out forwards;
+  }
+
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .content {
+    position: relative;
+    z-index: 2; /* Ensures the content stays above the overlay */
+  }
+
+
+.navbar-dark {
+    background-color: transparent;
+    z-index: 10;
+}

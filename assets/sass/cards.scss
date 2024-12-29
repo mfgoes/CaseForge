@@ -81,7 +81,7 @@ $gray-10: #F3F3EF;
 
 /* Optional hover effect for the arrow */
 .card-link:hover .card-arrow svg {
-    transform: translateX(4px); /* Moves the arrow to the right when hovering */
+    transform: translateX(0px); /* Moves the arrow to the right when hovering */
     fill: #1A1B1F;
 }
 
@@ -89,5 +89,4 @@ $gray-10: #F3F3EF;
     background-color: #F3F3EF;
     transition: 0.3s;
     margin-right: 0px;
-    padding-left: 4px;
 }
