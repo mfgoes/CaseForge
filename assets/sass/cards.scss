@@ -3,15 +3,29 @@ $border-radius-large: 16px;
 $underline-width: 3px;
 $gray-10: #F3F3EF;
 
+.testimonials {
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: #0f0f11;
+    border-style: solid 1px #2e2e2e;
+    border-radius: $border-radius-large;
+}
 
+.label-outline {
+    border: #2e2e2e 1px solid; 
+    border-radius: $border-radius-large;
+    width: auto;
+    padding: 4px 10px;
+    color: #868686;
+}
 /* Custom code for home page cards */
 #cards-view {
-    .card {
+    .card{
         width: 100%;
         margin-bottom: 20px;
-        background-color: #1A1B1F;
-        border-style: none;
-        border-radius: 20px;
+        background-color: #0f0f11;
+        border-style: solid 1px #2e2e2e;
+        border-radius: $border-radius-large;
 
         .card-img-top {
             width: 100%;
@@ -34,7 +48,7 @@ $gray-10: #F3F3EF;
                 height: 100%;
                 object-fit: cover; // Ensures the image covers the area
                 object-position: center; // Center the image if it's cropped
-                border-radius: 20px 20px 0 0;
+                border-radius: $border-radius-large $border-radius-large 0 0;
             }
         }
     }
