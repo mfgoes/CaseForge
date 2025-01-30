@@ -72,6 +72,10 @@
   fill: #fff;
   transition: transform 0.5s ease;
 }
+#cards-view .card:hover {
+  background-color: #141416;
+  transition: 0.3s;
+}
 
 .testimonials {
   width: 100%;
@@ -84,22 +88,29 @@
   align-items: left;
   justify-content: space-between;
   height: 100%;
-  padding: 20px;
+  padding: 24px;
+  margin-bottom: 12px;
+  transition: 0.2s;
+}
+.testimonials .subtitle {
+  color: red;
 }
 .testimonials img {
-  width: 70px;
-  border-radius: 10px;
+  width: 60px;
+  border-radius: 40px;
   margin-right: 14px;
-}
-.testimonials .testimonials-body {
-  align-items: left;
 }
 .testimonials .testimonials-body h1, .testimonials .testimonials-body h2, .testimonials .testimonials-body h4, .testimonials .testimonials-body h5 {
   color: white;
+  font-weight: 500;
 }
 .testimonials .card-text {
   margin-top: auto;
   flex-grow: 1;
+}
+.testimonials:hover {
+  background-color: #141416;
+  transition: 0.3s;
 }
 
 .card-text {

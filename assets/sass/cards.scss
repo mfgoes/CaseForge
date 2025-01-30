@@ -4,6 +4,7 @@ $underline-width: 3px;
 $gray-10: #F3F3EF;
 $border-color: #2e2e2e;
 $background-dark: #0f0f11;
+$background-dark-hover: #141416;
 $text-muted: #868686;
 
 // Shared styles
@@ -106,6 +107,11 @@ $text-muted: #868686;
                 transition: transform 0.5s ease;
             }
         }
+
+        &:hover {
+            background-color: $background-dark-hover; 
+            transition: 0.3s;
+        }
     }
 }
 
@@ -115,25 +121,35 @@ $text-muted: #868686;
     @include card-styles;
     @include flex-container(column, left, space-between);
     height: 100%; // Uniform height for all cards
-    padding: 20px;
+    padding: 24px;
+    margin-bottom: 12px;
+    transition: 0.2s;
+    .subtitle {
+        color: red;
+    }
 
     img {
-        width: 70px;
-        @include border-radius(10px);
+        width: 60px;
+        @include border-radius(40px);
         margin-right: 14px;
     }
 
     .testimonials-body {
-        align-items: left;
 
         h1, h2, h4, h5 {
             color: white;
+            font-weight: 500;
         }
     }
 
     .card-text {
         margin-top: auto;
         flex-grow: 1;
+    }
+
+    &:hover {
+        background-color: $background-dark-hover; 
+        transition: 0.3s;
     }
 }
 

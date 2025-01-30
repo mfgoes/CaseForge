@@ -35,13 +35,6 @@ h3 {
     font-size: 20px;
   }
 }
-.subtitle {
-  font-weight: 300;
-  color: whitesmoke;
-  line-height: 140%;
-  letter-spacing: 0.5 px;
-}
-
 body, p, table, th {
   font-family: "Archivo", sans-serif;
 }
@@ -68,7 +61,7 @@ html, body {
 }
 
 footer {
-  background-color: #171613;
+  background-color: #131417;
   font-family: "Manrope", sans-serif;
   color: #DADADA;
 }

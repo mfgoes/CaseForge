@@ -56,13 +56,6 @@ h3 {
 }
 
 
-.subtitle {
-    font-weight: 300;
-    color: whitesmoke;
-    line-height: 140%;
-    letter-spacing: 0.5 px;
-}
-
 // Apply the Archivo font to body and paragraphs
 body, p, table, th {
     font-family: 'Archivo', sans-serif;
@@ -91,7 +84,7 @@ html, body {
 }
 
 footer {
-    background-color: #171613;
+    background-color: $brand-black;
     font-family: "Manrope", sans-serif;
     color: $text-muted;
 
