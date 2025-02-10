@@ -35,6 +35,21 @@ $text-muted: #868686;
     color: $text-muted;
 }
 
+
+//Toggle UI
+#toggle-view-btn {
+    color: #adadad;
+    background: none;
+    border: none;
+    font-size: 0.8rem;
+    transition: color 0.2s ease-in-out;
+}
+
+#toggle-view-btn:hover {
+    color: $gray-10;
+}
+
+
 // Cards
 #cards-view {
     .card {

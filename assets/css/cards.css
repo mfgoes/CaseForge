@@ -5,6 +5,18 @@
   color: #868686;
 }
 
+#toggle-view-btn {
+  color: #adadad;
+  background: none;
+  border: none;
+  font-size: 0.8rem;
+  transition: color 0.2s ease-in-out;
+}
+
+#toggle-view-btn:hover {
+  color: #F3F3EF;
+}
+
 #cards-view .card {
   width: 100%;
   margin-bottom: 20px;
