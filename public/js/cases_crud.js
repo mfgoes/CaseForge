@@ -15,12 +15,9 @@ async function fetchCaseStudies() {
 // Fetch a single case study by ID
 async function fetchCaseStudyById(id) {
     try {
-        const response = await fetch(`/api/case-studies`);
-        if (!response.ok) {
-            throw new Error("Failed to fetch case study details.");
-        }
-        const caseStudies = await response.json();
-        return caseStudies.find((cs) => cs.id === id);
+        const response = await fetch(`/api/case-studies/${id}`);
+        if (!response.ok) throw new Error("Failed to fetch case study");
+        return await response.json();
     } catch (error) {
         console.error("Error fetching case study:", error);
         throw error;

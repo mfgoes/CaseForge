@@ -26,6 +26,19 @@ app.get('/api/case-studies', async (req, res) => {
     }
 });
 
+// Add this endpoint to server.js
+app.get('/api/case-studies/:id', async (req, res) => {
+    try {
+        const data = await fs.readFile(CASE_STUDIES_JSON, 'utf8');
+        const caseStudy = JSON.parse(data).find(cs => cs.id === req.params.id);
+        if (!caseStudy) return res.status(404).json({ error: 'Case study not found' });
+        res.json(caseStudy);
+    } catch (err) {
+        console.error('Error:', err);
+        res.status(500).json({ error: 'Failed to load case study' });
+    }
+});
+
 app.post('/api/update-case-study', async (req, res) => {
     try {
         const updatedCaseStudy = req.body;
