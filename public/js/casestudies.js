@@ -84,10 +84,13 @@ async function fetchAndDisplayCaseStudies() {
           <div class="card-body">
             <h5 class="card-title">${caseStudy.title}</h5>
             <p class="card-text">${caseStudy.subtitle}</p>
+            <p class="card-text text-muted">${caseStudy.delivery_date || ''}</p>
+
+
             <div class="btn-group">
               <a href="/case-study/${caseStudy.id}" target="_blank" class="btn btn-sm btn-outline-primary">View</a>
-              <button class="btn btn-sm btn-outline-secondary edit-btn" data-id="${caseStudy.id}">Edit</button>
-              <button class="btn btn-sm btn-outline-danger delete-btn" data-id="${caseStudy.id}">Delete</button>
+              <a class="btn btn-sm btn-outline-secondary edit-btn" data-id="${caseStudy.id}">Edit</a>
+              <a class="btn btn-sm btn-outline-danger delete-btn" data-id="${caseStudy.id}">Delete</a>
             </div>
           </div>
         </div>
@@ -113,6 +116,7 @@ async function fetchAndDisplayCaseStudies() {
 }
 
 // Generate form fields for a given form ID and prefix, and append buttons
+// Generate form fields for a given form ID and prefix, and append buttons
 function generateFormFields(formId, prefix) {
     const form = document.getElementById(formId);
     if (!form) return;
@@ -122,13 +126,13 @@ function generateFormFields(formId, prefix) {
   
     // Create input fields based on CASE_STUDY_FIELDS
     CASE_STUDY_FIELDS.forEach(field => {
-      const fieldWrapper = document.createElement('div');
-      fieldWrapper.className = 'mb-3';
-      fieldWrapper.innerHTML = `
-        <label for="${prefix}${field}" class="form-label">${field}</label>
-        <input type="text" id="${prefix}${field}" class="form-control" required>
+      const formattedField = field.replace(/ /g, '_');  // Replace spaces with underscores
+      form.innerHTML += `
+        <div class="mb-3">
+          <label for="${prefix}${formattedField}">${field}</label>
+          <input type="text" id="${prefix}${formattedField}" required>
+        </div>
       `;
-      form.appendChild(fieldWrapper);
     });
   
     // For the edit form, add a hidden input for the case study ID
@@ -165,7 +169,7 @@ function getFormData(formId, prefix) {
     if (input) {
       data[field] = input.value;
     }
-  });
+  });  
   return data;
 }
 
@@ -187,11 +191,12 @@ async function editCaseStudy(id) {
   
       // Populate the form fields with the data
       CASE_STUDY_FIELDS.forEach(field => {
-        const inputElement = editForm.querySelector(`#edit${field}`);
+        const formattedField = field.replace(/ /g, '_');  // Replace spaces with underscores
+        const inputElement = editForm.querySelector(`#edit${formattedField}`);
         if (inputElement) {
           inputElement.value = caseStudy[field] || '';
         } else {
-          console.warn(`Missing form field: #edit${field}`);
+          console.warn(`Missing form field: #edit${formattedField}`);
         }
       });
   
