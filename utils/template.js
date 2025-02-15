@@ -19,6 +19,7 @@ const generateCaseStudyTemplate = (caseStudy) => `
     <div class="container mt-5">
         <div class="card shadow">
             <div class="card-body">
+                <img src="${caseStudy.image_url}" class="card-img-top" alt="Case Study Image" style="width: 200px; height: auto;">
                 <h1 class="display-4">${caseStudy.title}</h1>
                 <p class="lead">${caseStudy.subtitle}</p>
                 <div class="content mt-4">

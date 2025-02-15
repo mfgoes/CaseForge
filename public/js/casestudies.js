@@ -116,49 +116,72 @@ async function fetchAndDisplayCaseStudies() {
 }
 
 // Generate form fields for a given form ID and prefix, and append buttons
-// Generate form fields for a given form ID and prefix, and append buttons
 function generateFormFields(formId, prefix) {
-    const form = document.getElementById(formId);
-    if (!form) return;
-    
-    // Clear any existing content to avoid duplicates
-    form.innerHTML = '';
+  const form = document.getElementById(formId);
+  if (!form) return;
   
-    // Create input fields based on CASE_STUDY_FIELDS
-    CASE_STUDY_FIELDS.forEach(field => {
-      const formattedField = field.replace(/ /g, '_');  // Replace spaces with underscores
-      form.innerHTML += `
-        <div class="mb-3">
-          <label for="${prefix}${formattedField}">${field}</label>
-          <input type="text" id="${prefix}${formattedField}" required>
-        </div>
-      `;
-    });
+  // Clear any existing content to avoid duplicates
+  form.innerHTML = '';
   
-    // For the edit form, add a hidden input for the case study ID
-    if (prefix === 'edit') {
-      const hiddenInput = document.createElement('input');
-      hiddenInput.type = 'hidden';
-      hiddenInput.id = 'editId';
-      form.appendChild(hiddenInput);
-    }
+  // Create input fields based on CASE_STUDY_FIELDS
+  CASE_STUDY_FIELDS.forEach(field => {
+    const formattedField = field.replace(/ /g, '_');  // Replace spaces with underscores
+    form.innerHTML += `
+      <div class="mb-3">
+        <label for="${prefix}${formattedField}">${field}</label>
+        <input type="text" id="${prefix}${formattedField}" class="form-control" required>
+        ${
+          formattedField === "image_url" && prefix === "edit"
+            ? `<img id="${prefix}ImagePreview" src="" alt="Image Preview" style="max-width:100px; display:block; margin-top:10px;">`
+            : ''
+        }
+      </div>
+    `;
+  });
   
-    // Append submit and cancel buttons depending on the form type
-    const buttonGroup = document.createElement('div');
-    buttonGroup.className = 'd-flex gap-2';
-    if (prefix === 'create') {
-      buttonGroup.innerHTML = `
-        <button type="submit" class="btn btn-primary">Create</button>
-        <button type="button" class="btn btn-secondary" onclick="cancelCreate()">Cancel</button>
-      `;
-    } else if (prefix === 'edit') {
-      buttonGroup.innerHTML = `
-        <button type="submit" class="btn btn-success">Save Changes</button>
-        <button type="button" class="btn btn-secondary" onclick="cancelEdit()">Cancel</button>
-      `;
-    }
-    form.appendChild(buttonGroup);
+  // For the edit form, add a hidden input for the case study ID
+  if (prefix === 'edit') {
+    const hiddenInput = document.createElement('input');
+    hiddenInput.type = 'hidden';
+    hiddenInput.id = 'editId';
+    form.appendChild(hiddenInput);
   }
+  
+  // Append submit and cancel buttons depending on the form type
+  const buttonGroup = document.createElement('div');
+  buttonGroup.className = 'd-flex gap-2';
+  if (prefix === 'create') {
+    buttonGroup.innerHTML = `
+      <button type="submit" class="btn btn-primary">Create</button>
+      <button type="button" class="btn btn-secondary" onclick="cancelCreate()">Cancel</button>
+    `;
+  } else if (prefix === 'edit') {
+    buttonGroup.innerHTML = `
+      <button type="submit" class="btn btn-success">Save Changes</button>
+      <button type="button" class="btn btn-secondary" onclick="cancelEdit()">Cancel</button>
+    `;
+  }
+  form.appendChild(buttonGroup);
+  
+  // If this is the edit form, attach an event listener to update the image preview
+  if (prefix === 'edit') {
+    const imageInput = document.getElementById("editimage_url");
+    if (imageInput) {
+      imageInput.addEventListener('input', function() {
+        const preview = document.getElementById("editImagePreview");
+        if (preview) {
+          let value = imageInput.value;
+          // If the value isn't an absolute path, prepend the assets folder path
+          if (value && !value.startsWith('/')) {
+            value = '/assets/images/' + value;
+          }
+          preview.src = value;
+        }
+      });
+    }
+  }
+}
+
   
 
 // Collect form data from inputs with a given form ID and prefix
@@ -175,43 +198,54 @@ function getFormData(formId, prefix) {
 
 // Populate the edit form with data fetched by ID
 async function editCaseStudy(id) {
-    try {
-      // Fetch case study data
-      const caseStudy = await fetchCaseStudyById(id);
-      const editForm = document.getElementById('editCaseStudyForm');
-      const editContainer = document.getElementById('editFormContainer');
-      
-      if (!editForm || !editContainer) {
-        console.error("Edit form or container not found.");
-        return;
-      }
-      
-      // Reset the form first before populating it
-      editForm.reset();
-  
-      // Populate the form fields with the data
-      CASE_STUDY_FIELDS.forEach(field => {
-        const formattedField = field.replace(/ /g, '_');  // Replace spaces with underscores
-        const inputElement = editForm.querySelector(`#edit${formattedField}`);
-        if (inputElement) {
-          inputElement.value = caseStudy[field] || '';
-        } else {
-          console.warn(`Missing form field: #edit${formattedField}`);
-        }
-      });
-  
-      // Set hidden ID field
-      const idField = editForm.querySelector('#editId');
-      if (idField) idField.value = id;
-  
-      // Show the form
-      editContainer.classList.toggle('d-none', false);
-    } catch (error) {
-      console.error('Error fetching case study for edit:', error);
-      alert('Failed to load case study for editing.');
+  try {
+    // Fetch case study data
+    const caseStudy = await fetchCaseStudyById(id);
+    const editForm = document.getElementById('editCaseStudyForm');
+    const editContainer = document.getElementById('editFormContainer');
+    
+    if (!editForm || !editContainer) {
+      console.error("Edit form or container not found.");
+      return;
     }
-  }
+    
+    // Reset the form before populating it
+    editForm.reset();
+
+    // Populate the form fields with the data
+    CASE_STUDY_FIELDS.forEach(field => {
+      const formattedField = field.replace(/ /g, '_');  // Replace spaces with underscores
+      const inputElement = editForm.querySelector(`#edit${formattedField}`);
+      if (inputElement) {
+        inputElement.value = caseStudy[field] || '';
+      } else {
+        console.warn(`Missing form field: #edit${formattedField}`);
+      }
+    });
+    
+    // Update the image preview if applicable
+    const imageInput = editForm.querySelector("#editimage_url");
+    const preview = document.getElementById("editImagePreview");
+    if (imageInput && preview) {
+      let value = imageInput.value;
+      if (value && !value.startsWith('/')) {
+        value = '/assets/images/' + value;
+      }
+      preview.src = value;
+    }
   
+    // Set hidden ID field
+    const idField = editForm.querySelector('#editId');
+    if (idField) idField.value = id;
+  
+    // Show the edit form container
+    editContainer.classList.toggle('d-none', false);
+  } catch (error) {
+    console.error('Error fetching case study for edit:', error);
+    alert('Failed to load case study for editing.');
+  }
+}
+
   
 // Hide the edit form and reset its content
 function cancelEdit() {
